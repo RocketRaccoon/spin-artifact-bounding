@@ -1,0 +1,40 @@
+{
+  "appConfig": {},
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "andrey.smirnov",
+  "limitConcurrent": true,
+  "parameterConfig": [
+    {
+      "default": "42",
+      "description": "",
+      "hasOptions": false,
+      "label": "test",
+      "name": "test",
+      "options": [
+        {
+          "value": ""
+        }
+      ],
+      "pinned": true,
+      "required": true
+    }
+  ],
+  "spelEvaluator": "v4",
+  "stages": [
+    {
+      "application": "test",
+      "failPipeline": true,
+      "name": "deploy aaa",
+      "pipeline": "ce9e29ab-aecb-4064-8e09-2c3964d8419d",
+      "pipelineParameters": {
+        "test": "${ parameters.test }"
+      },
+      "refId": "1",
+      "requisiteStageRefIds": [],
+      "type": "pipeline",
+      "waitForCompletion": true
+    }
+  ],
+  "triggers": [],
+  "updateTs": "1614058036513"
+}

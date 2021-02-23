@@ -1,0 +1,1894 @@
+{
+  "type": "PIPELINE",
+  "id": "01EZ6NQSCTRHFTHRQY0G03KYER",
+  "application": "test",
+  "name": "deploy-aaa",
+  "buildTime": 1614058087860,
+  "canceled": false,
+  "limitConcurrent": true,
+  "keepWaitingPipelines": false,
+  "stages": [
+    {
+      "id": "01EZ6NQSDMR92ZB1QWF9F01R0J",
+      "refId": "1",
+      "type": "bakeManifest",
+      "name": "Bake (Manifest)",
+      "startTime": 1614058088112,
+      "endTime": 1614058097977,
+      "status": "SUCCEEDED",
+      "context": {
+        "expectedArtifacts": [
+          {
+            "usePriorArtifact": false,
+            "displayName": "curly-goat-83",
+            "useDefaultArtifact": false,
+            "defaultArtifact": {
+              "customKind": true,
+              "id": "22a4a63a-c77c-4ccd-a89c-95c8fcad3185"
+            },
+            "id": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+            "matchArtifact": {
+              "customKind": false,
+              "name": "test-aaa",
+              "artifactAccount": "embedded-artifact",
+              "id": "b0d1e8a5-1a57-4c20-b171-d4eace59f09b",
+              "type": "embedded/base64"
+            }
+          }
+        ],
+        "outputName": "test-aaa",
+        "cloudProvider": "kubernetes",
+        "resolvedExpectedArtifacts": [
+          {
+            "usePriorArtifact": false,
+            "useDefaultArtifact": false,
+            "defaultArtifact": {
+              "customKind": true,
+              "metadata": {
+                "id": "22a4a63a-c77c-4ccd-a89c-95c8fcad3185"
+              }
+            },
+            "id": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+            "boundArtifact": {
+              "customKind": false,
+              "reference": "REMOVED",
+              "metadata": {},
+              "name": "test-aaa",
+              "type": "embedded/base64"
+            },
+            "matchArtifact": {
+              "customKind": false,
+              "metadata": {
+                "id": "b0d1e8a5-1a57-4c20-b171-d4eace59f09b"
+              },
+              "name": "test-aaa",
+              "artifactAccount": "embedded-artifact",
+              "type": "embedded/base64"
+            }
+          }
+        ],
+        "namespace": "demo",
+        "templateRenderer": "HELM3",
+        "overrides": {
+          "test": "43"
+        },
+        "inputArtifacts": [
+          {
+            "artifact": {
+              "name": "test-aaa",
+              "artifactAccount": "chartmuseum-helm",
+              "id": "f63fc2f3-4d4a-4a19-86a2-6db39879d1b2",
+              "type": "helm/chart",
+              "version": "0.1.0"
+            },
+            "account": "chartmuseum-helm"
+          }
+        ],
+        "artifacts": [
+          {
+            "customKind": false,
+            "reference": "REMOVED",
+            "metadata": {},
+            "name": "test-aaa",
+            "type": "embedded/base64"
+          }
+        ]
+      },
+      "outputs": {
+        "cloudProvider": "kubernetes",
+        "artifacts": [
+          {
+            "type": "embedded/base64",
+            "customKind": false,
+            "name": "test-aaa",
+            "reference": "REMOVED",
+            "metadata": {}
+          }
+        ],
+        "resolvedExpectedArtifacts": [
+          {
+            "matchArtifact": {
+              "type": "embedded/base64",
+              "customKind": false,
+              "name": "test-aaa",
+              "metadata": {
+                "id": "b0d1e8a5-1a57-4c20-b171-d4eace59f09b"
+              },
+              "artifactAccount": "embedded-artifact"
+            },
+            "usePriorArtifact": false,
+            "useDefaultArtifact": false,
+            "defaultArtifact": {
+              "customKind": true,
+              "metadata": {
+                "id": "22a4a63a-c77c-4ccd-a89c-95c8fcad3185"
+              }
+            },
+            "id": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+            "boundArtifact": {
+              "type": "embedded/base64",
+              "customKind": false,
+              "name": "test-aaa",
+              "reference": "REMOVED",
+              "metadata": {}
+            }
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "id": "1",
+          "implementingClass": "com.netflix.spinnaker.orca.bakery.tasks.manifests.CreateBakeManifestTask",
+          "name": "createBake",
+          "startTime": 1614058088240,
+          "endTime": 1614058097528,
+          "status": "SUCCEEDED",
+          "stageStart": true,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "2",
+          "implementingClass": "com.netflix.spinnaker.orca.pipeline.tasks.artifacts.BindProducedArtifactsTask",
+          "name": "bindProducedArtifacts",
+          "startTime": 1614058097621,
+          "endTime": 1614058097891,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": true,
+          "loopStart": false,
+          "loopEnd": false
+        }
+      ],
+      "requisiteStageRefIds": []
+    },
+    {
+      "id": "01EZ6NQSDMC3DSBBXRF66B6F62",
+      "refId": "2",
+      "type": "deployManifest",
+      "name": "Deploy (Manifest)",
+      "startTime": 1614058098061,
+      "endTime": 1614058106688,
+      "status": "SUCCEEDED",
+      "context": {
+        "deploy.account.name": "spinnaker-integration",
+        "outputs.createdArtifacts": [
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa-v000",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/configMap",
+            "version": "v000"
+          },
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/deployment"
+          }
+        ],
+        "namespaceOverride": "demo",
+        "deployedManifests": [],
+        "source": "artifact",
+        "processed.scopedManifests": [
+          {
+            "name": "configMap delete-me-aaa-v000",
+            "location": "demo",
+            "account": "spinnaker-integration"
+          },
+          {
+            "name": "deployment delete-me-aaa",
+            "location": "demo",
+            "account": "spinnaker-integration"
+          }
+        ],
+        "manifestArtifactId": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+        "stableManifests": [
+          {
+            "manifestName": "configMap delete-me-aaa-v000",
+            "location": "demo"
+          },
+          {
+            "manifestName": "deployment delete-me-aaa",
+            "location": "demo"
+          }
+        ],
+        "cloudProvider": "kubernetes",
+        "kato.result.expected": false,
+        "trafficManagement": {
+          "options": {
+            "enableTraffic": false,
+            "services": []
+          },
+          "enabled": false
+        },
+        "deploy.server.groups": {},
+        "kato.last.task.id": {
+          "id": "3f499806-e959-4948-a6bb-1a693503e75a"
+        },
+        "requiredArtifacts": [],
+        "artifacts": [
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa-v000",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/configMap",
+            "version": "v000"
+          },
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/deployment"
+          }
+        ],
+        "kato.task.terminalRetryCount": 0,
+        "refreshed.scopedManifests": [
+          {
+            "name": "configMap delete-me-aaa-v000",
+            "location": "demo",
+            "account": "spinnaker-integration"
+          },
+          {
+            "name": "deployment delete-me-aaa",
+            "location": "demo",
+            "account": "spinnaker-integration"
+          }
+        ],
+        "moniker": {
+          "app": "test"
+        },
+        "kato.task.firstNotFoundRetry": -1,
+        "outputs.manifestNamesByNamespace": {
+          "demo": [
+            "configMap delete-me-aaa-v000",
+            "deployment delete-me-aaa"
+          ]
+        },
+        "optionalArtifacts": [
+          {
+            "customKind": false,
+            "reference": "REMOVED",
+            "metadata": {},
+            "name": "test-aaa",
+            "type": "embedded/base64"
+          },
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa-v001",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/configMap",
+            "version": "v001"
+          },
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/deployment"
+          },
+          {
+            "customKind": false,
+            "reference": "REMOVED",
+            "metadata": {},
+            "name": "test-aaa",
+            "type": "embedded/base64"
+          }
+        ],
+        "manifestNamesByNamespaceToRefresh": {},
+        "outputs.boundArtifacts": [
+          {
+            "customKind": false,
+            "reference": "delete-me-aaa-v001",
+            "metadata": {
+              "account": "spinnaker-integration"
+            },
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "type": "kubernetes/configMap",
+            "version": "v001"
+          }
+        ],
+        "manifests": [
+          {
+            "metadata": {
+              "name": "delete-me-aaa",
+              "namespace": "demo"
+            },
+            "apiVersion": "v1",
+            "data": {
+              "test": "43"
+            },
+            "kind": "ConfigMap"
+          },
+          {
+            "metadata": {
+              "name": "delete-me-aaa",
+              "namespace": "demo"
+            },
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "component": "test-aaa"
+                  }
+                },
+                "spec": {
+                  "volumes": [
+                    {
+                      "configMap": {
+                        "name": "delete-me-aaa"
+                      },
+                      "name": "config"
+                    }
+                  ],
+                  "containers": [
+                    {
+                      "args": [
+                        "-c",
+                        "echo $TEST; sleep 300"
+                      ],
+                      "image": "alpine:latest",
+                      "name": "test",
+                      "env": [
+                        {
+                          "name": "TEST",
+                          "valueFrom": {
+                            "configMapKeyRef": {
+                              "name": "delete-me-aaa",
+                              "key": "test"
+                            }
+                          }
+                        }
+                      ],
+                      "command": [
+                        "/bin/sh"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "replicas": 1,
+              "selector": {
+                "matchLabels": {
+                  "component": "test-aaa"
+                }
+              }
+            }
+          }
+        ],
+        "messages": [],
+        "failedManifests": [],
+        "kato.tasks": [
+          {
+            "resultObjects": [
+              {
+                "createdArtifacts": [
+                  {
+                    "customKind": false,
+                    "reference": "delete-me-aaa-v000",
+                    "metadata": {
+                      "account": "spinnaker-integration"
+                    },
+                    "name": "delete-me-aaa",
+                    "location": "demo",
+                    "type": "kubernetes/configMap",
+                    "version": "v000"
+                  },
+                  {
+                    "customKind": false,
+                    "reference": "delete-me-aaa",
+                    "metadata": {
+                      "account": "spinnaker-integration"
+                    },
+                    "name": "delete-me-aaa",
+                    "location": "demo",
+                    "type": "kubernetes/deployment"
+                  }
+                ],
+                "manifests": [
+                  {
+                    "metadata": {
+                      "generation": 2,
+                      "uid": "3d1d6a56-7594-11eb-be73-02c62bddb3fe",
+                      "resourceVersion": "88552660",
+                      "creationTimestamp": "2021-02-23T05:01:50Z",
+                      "name": "delete-me-aaa",
+                      "namespace": "demo",
+                      "annotations": {
+                        "artifact.spinnaker.io/name": "delete-me-aaa",
+                        "artifact.spinnaker.io/location": "demo",
+                        "deployment.kubernetes.io/revision": "2",
+                        "artifact.spinnaker.io/type": "kubernetes/deployment",
+                        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\"},\"name\":\"delete-me-aaa\",\"namespace\":\"demo\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"component\":\"test-aaa\"}},\"template\":{\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"component\":\"test-aaa\"}},\"spec\":{\"containers\":[{\"args\":[\"-c\",\"echo $TEST; sleep 300\"],\"command\":[\"/bin/sh\"],\"env\":[{\"name\":\"TEST\",\"valueFrom\":{\"configMapKeyRef\":{\"key\":\"test\",\"name\":\"delete-me-aaa-v001\"}}}],\"image\":\"alpine:latest\",\"name\":\"test\"}],\"volumes\":[{\"configMap\":{\"name\":\"delete-me-aaa-v001\"},\"name\":\"config\"}]}}}}\n",
+                        "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                        "moniker.spinnaker.io/application": "test"
+                      },
+                      "labels": {
+                        "app.kubernetes.io/managed-by": "spinnaker",
+                        "app.kubernetes.io/name": "test"
+                      },
+                      "selfLink": "/apis/apps/v1/namespaces/demo/deployments/delete-me-aaa"
+                    },
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "spec": {
+                      "template": {
+                        "metadata": {
+                          "annotations": {
+                            "artifact.spinnaker.io/name": "delete-me-aaa",
+                            "artifact.spinnaker.io/location": "demo",
+                            "artifact.spinnaker.io/type": "kubernetes/deployment",
+                            "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                            "moniker.spinnaker.io/application": "test"
+                          },
+                          "labels": {
+                            "app.kubernetes.io/managed-by": "spinnaker",
+                            "component": "test-aaa",
+                            "app.kubernetes.io/name": "test"
+                          }
+                        },
+                        "spec": {
+                          "dnsPolicy": "ClusterFirst",
+                          "terminationGracePeriodSeconds": 30,
+                          "volumes": [
+                            {
+                              "configMap": {
+                                "defaultMode": 420,
+                                "name": "delete-me-aaa-v001"
+                              },
+                              "name": "config"
+                            }
+                          ],
+                          "containers": [
+                            {
+                              "args": [
+                                "-c",
+                                "echo $TEST; sleep 300"
+                              ],
+                              "image": "alpine:latest",
+                              "imagePullPolicy": "Always",
+                              "terminationMessagePolicy": "File",
+                              "terminationMessagePath": "/dev/termination-log",
+                              "name": "test",
+                              "resources": {},
+                              "env": [
+                                {
+                                  "name": "TEST",
+                                  "valueFrom": {
+                                    "configMapKeyRef": {
+                                      "name": "delete-me-aaa-v001",
+                                      "key": "test"
+                                    }
+                                  }
+                                }
+                              ],
+                              "command": [
+                                "/bin/sh"
+                              ]
+                            }
+                          ],
+                          "securityContext": {},
+                          "restartPolicy": "Always",
+                          "schedulerName": "default-scheduler"
+                        }
+                      },
+                      "replicas": 1,
+                      "revisionHistoryLimit": 10,
+                      "selector": {
+                        "matchLabels": {
+                          "component": "test-aaa"
+                        }
+                      },
+                      "strategy": {
+                        "type": "RollingUpdate",
+                        "rollingUpdate": {
+                          "maxSurge": "25%",
+                          "maxUnavailable": "25%"
+                        }
+                      },
+                      "progressDeadlineSeconds": 600
+                    },
+                    "status": {
+                      "replicas": 1,
+                      "readyReplicas": 1,
+                      "conditions": [
+                        {
+                          "reason": "NewReplicaSetAvailable",
+                          "lastTransitionTime": "2021-02-23T05:01:50Z",
+                          "message": "ReplicaSet \"delete-me-aaa-df7f6787b\" has successfully progressed.",
+                          "type": "Progressing",
+                          "lastUpdateTime": "2021-02-23T05:08:10Z",
+                          "status": "True"
+                        },
+                        {
+                          "reason": "MinimumReplicasAvailable",
+                          "lastTransitionTime": "2021-02-23T05:23:53Z",
+                          "message": "Deployment has minimum availability.",
+                          "type": "Available",
+                          "lastUpdateTime": "2021-02-23T05:23:53Z",
+                          "status": "True"
+                        }
+                      ],
+                      "updatedReplicas": 1,
+                      "availableReplicas": 1,
+                      "observedGeneration": 2
+                    }
+                  },
+                  {
+                    "metadata": {
+                      "uid": "3cf5d0a7-7594-11eb-8d3c-062831cc4a60",
+                      "resourceVersion": "88549411",
+                      "creationTimestamp": "2021-02-23T05:01:50Z",
+                      "name": "delete-me-aaa-v000",
+                      "namespace": "demo",
+                      "annotations": {
+                        "artifact.spinnaker.io/version": "v000",
+                        "artifact.spinnaker.io/name": "delete-me-aaa",
+                        "artifact.spinnaker.io/location": "demo",
+                        "artifact.spinnaker.io/type": "kubernetes/configMap",
+                        "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"test\":\"43\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/configMap\",\"artifact.spinnaker.io/version\":\"v000\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"configMap delete-me-aaa\",\"moniker.spinnaker.io/sequence\":\"0\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"moniker.spinnaker.io/sequence\":\"0\"},\"name\":\"delete-me-aaa-v000\",\"namespace\":\"demo\"}}\n",
+                        "moniker.spinnaker.io/cluster": "configMap delete-me-aaa",
+                        "moniker.spinnaker.io/sequence": "0",
+                        "moniker.spinnaker.io/application": "test"
+                      },
+                      "labels": {
+                        "app.kubernetes.io/managed-by": "spinnaker",
+                        "app.kubernetes.io/name": "test",
+                        "moniker.spinnaker.io/sequence": "0"
+                      },
+                      "selfLink": "/api/v1/namespaces/demo/configmaps/delete-me-aaa-v000"
+                    },
+                    "apiVersion": "v1",
+                    "data": {
+                      "test": "43"
+                    },
+                    "kind": "ConfigMap"
+                  }
+                ],
+                "manifestNamesByNamespace": {
+                  "demo": [
+                    "configMap delete-me-aaa-v000",
+                    "deployment delete-me-aaa"
+                  ]
+                },
+                "boundArtifacts": [
+                  {
+                    "customKind": false,
+                    "reference": "delete-me-aaa-v001",
+                    "metadata": {
+                      "account": "spinnaker-integration"
+                    },
+                    "name": "delete-me-aaa",
+                    "location": "demo",
+                    "type": "kubernetes/configMap",
+                    "version": "v001"
+                  }
+                ]
+              }
+            ],
+            "id": "5814d3c4-8030-4e4f-8dd8-0c905719db45",
+            "history": [
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Initializing Orchestration Task"
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Processing op: KubernetesDeployManifestOperation"
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Beginning deployment of manifest..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for configMap..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Swapping out artifacts in configMap delete-me-aaa from context..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for deployment..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Swapping out artifacts in deployment delete-me-aaa from context..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Checking if all requested artifacts were bound..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Sorting manifests by priority..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for deployment..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for configMap..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Deploy order is: configMap delete-me-aaa, deployment delete-me-aaa"
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for configMap..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Annotating manifest configMap delete-me-aaa with artifact, relationships & moniker..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Swapping out artifacts in configMap delete-me-aaa-v000 from other deployments..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Submitting manifest configMap delete-me-aaa-v000 to kubernetes master..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Finding deployer for deployment..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Annotating manifest deployment delete-me-aaa with artifact, relationships & moniker..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Swapping out artifacts in deployment delete-me-aaa from other deployments..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Submitting manifest deployment delete-me-aaa to kubernetes master..."
+              },
+              {
+                "phase": "DEPLOY_KUBERNETES_MANIFEST",
+                "status": "Deploy manifest task completed successfully."
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Orchestration completed."
+              }
+            ],
+            "status": {
+              "retryable": false,
+              "completed": true,
+              "failed": false
+            }
+          },
+          {
+            "resultObjects": [
+              {
+                "createdArtifacts": [],
+                "manifestNamesByNamespace": {},
+                "boundArtifacts": []
+              }
+            ],
+            "id": "3f499806-e959-4948-a6bb-1a693503e75a",
+            "history": [
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Initializing Orchestration Task"
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Processing op: KubernetesCleanupArtifactsOperation"
+              },
+              {
+                "phase": "ORCHESTRATION",
+                "status": "Orchestration completed."
+              }
+            ],
+            "status": {
+              "retryable": false,
+              "completed": true,
+              "failed": false
+            }
+          }
+        ],
+        "outputs.manifests": [
+          {
+            "metadata": {
+              "generation": 2,
+              "uid": "3d1d6a56-7594-11eb-be73-02c62bddb3fe",
+              "resourceVersion": "88552660",
+              "creationTimestamp": "2021-02-23T05:01:50Z",
+              "name": "delete-me-aaa",
+              "namespace": "demo",
+              "annotations": {
+                "artifact.spinnaker.io/name": "delete-me-aaa",
+                "artifact.spinnaker.io/location": "demo",
+                "deployment.kubernetes.io/revision": "2",
+                "artifact.spinnaker.io/type": "kubernetes/deployment",
+                "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\"},\"name\":\"delete-me-aaa\",\"namespace\":\"demo\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"component\":\"test-aaa\"}},\"template\":{\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"component\":\"test-aaa\"}},\"spec\":{\"containers\":[{\"args\":[\"-c\",\"echo $TEST; sleep 300\"],\"command\":[\"/bin/sh\"],\"env\":[{\"name\":\"TEST\",\"valueFrom\":{\"configMapKeyRef\":{\"key\":\"test\",\"name\":\"delete-me-aaa-v001\"}}}],\"image\":\"alpine:latest\",\"name\":\"test\"}],\"volumes\":[{\"configMap\":{\"name\":\"delete-me-aaa-v001\"},\"name\":\"config\"}]}}}}\n",
+                "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                "moniker.spinnaker.io/application": "test"
+              },
+              "labels": {
+                "app.kubernetes.io/managed-by": "spinnaker",
+                "app.kubernetes.io/name": "test"
+              },
+              "selfLink": "/apis/apps/v1/namespaces/demo/deployments/delete-me-aaa"
+            },
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": {
+                  "annotations": {
+                    "artifact.spinnaker.io/name": "delete-me-aaa",
+                    "artifact.spinnaker.io/location": "demo",
+                    "artifact.spinnaker.io/type": "kubernetes/deployment",
+                    "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                    "moniker.spinnaker.io/application": "test"
+                  },
+                  "labels": {
+                    "app.kubernetes.io/managed-by": "spinnaker",
+                    "component": "test-aaa",
+                    "app.kubernetes.io/name": "test"
+                  }
+                },
+                "spec": {
+                  "dnsPolicy": "ClusterFirst",
+                  "terminationGracePeriodSeconds": 30,
+                  "volumes": [
+                    {
+                      "configMap": {
+                        "defaultMode": 420,
+                        "name": "delete-me-aaa-v001"
+                      },
+                      "name": "config"
+                    }
+                  ],
+                  "containers": [
+                    {
+                      "args": [
+                        "-c",
+                        "echo $TEST; sleep 300"
+                      ],
+                      "image": "alpine:latest",
+                      "imagePullPolicy": "Always",
+                      "terminationMessagePolicy": "File",
+                      "terminationMessagePath": "/dev/termination-log",
+                      "name": "test",
+                      "resources": {},
+                      "env": [
+                        {
+                          "name": "TEST",
+                          "valueFrom": {
+                            "configMapKeyRef": {
+                              "name": "delete-me-aaa-v001",
+                              "key": "test"
+                            }
+                          }
+                        }
+                      ],
+                      "command": [
+                        "/bin/sh"
+                      ]
+                    }
+                  ],
+                  "securityContext": {},
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler"
+                }
+              },
+              "replicas": 1,
+              "revisionHistoryLimit": 10,
+              "selector": {
+                "matchLabels": {
+                  "component": "test-aaa"
+                }
+              },
+              "strategy": {
+                "type": "RollingUpdate",
+                "rollingUpdate": {
+                  "maxSurge": "25%",
+                  "maxUnavailable": "25%"
+                }
+              },
+              "progressDeadlineSeconds": 600
+            },
+            "status": {
+              "replicas": 1,
+              "readyReplicas": 1,
+              "conditions": [
+                {
+                  "reason": "NewReplicaSetAvailable",
+                  "lastTransitionTime": "2021-02-23T05:01:50Z",
+                  "message": "ReplicaSet \"delete-me-aaa-df7f6787b\" has successfully progressed.",
+                  "type": "Progressing",
+                  "lastUpdateTime": "2021-02-23T05:08:10Z",
+                  "status": "True"
+                },
+                {
+                  "reason": "MinimumReplicasAvailable",
+                  "lastTransitionTime": "2021-02-23T05:23:53Z",
+                  "message": "Deployment has minimum availability.",
+                  "type": "Available",
+                  "lastUpdateTime": "2021-02-23T05:23:53Z",
+                  "status": "True"
+                }
+              ],
+              "updatedReplicas": 1,
+              "availableReplicas": 1,
+              "observedGeneration": 2
+            }
+          },
+          {
+            "metadata": {
+              "uid": "3cf5d0a7-7594-11eb-8d3c-062831cc4a60",
+              "resourceVersion": "88549411",
+              "creationTimestamp": "2021-02-23T05:01:50Z",
+              "name": "delete-me-aaa-v000",
+              "namespace": "demo",
+              "annotations": {
+                "artifact.spinnaker.io/version": "v000",
+                "artifact.spinnaker.io/name": "delete-me-aaa",
+                "artifact.spinnaker.io/location": "demo",
+                "artifact.spinnaker.io/type": "kubernetes/configMap",
+                "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"test\":\"43\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/configMap\",\"artifact.spinnaker.io/version\":\"v000\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"configMap delete-me-aaa\",\"moniker.spinnaker.io/sequence\":\"0\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"moniker.spinnaker.io/sequence\":\"0\"},\"name\":\"delete-me-aaa-v000\",\"namespace\":\"demo\"}}\n",
+                "moniker.spinnaker.io/cluster": "configMap delete-me-aaa",
+                "moniker.spinnaker.io/sequence": "0",
+                "moniker.spinnaker.io/application": "test"
+              },
+              "labels": {
+                "app.kubernetes.io/managed-by": "spinnaker",
+                "app.kubernetes.io/name": "test",
+                "moniker.spinnaker.io/sequence": "0"
+              },
+              "selfLink": "/api/v1/namespaces/demo/configmaps/delete-me-aaa-v000"
+            },
+            "apiVersion": "v1",
+            "data": {
+              "test": "43"
+            },
+            "kind": "ConfigMap"
+          }
+        ],
+        "kato.task.notFoundRetryCount": 0,
+        "shouldRefreshManifestNamesByNamespaceToRefresh": false,
+        "account": "spinnaker-integration",
+        "skipExpressionEvaluation": true,
+        "errors": [],
+        "kato.task.lastStatus": "SUCCEEDED"
+      },
+      "outputs": {
+        "manifests": [
+          {
+            "apiVersion": "v1",
+            "kind": "ConfigMap",
+            "metadata": {
+              "name": "delete-me-aaa",
+              "namespace": "demo"
+            },
+            "data": {
+              "test": "43"
+            }
+          },
+          {
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "metadata": {
+              "name": "delete-me-aaa",
+              "namespace": "demo"
+            },
+            "spec": {
+              "replicas": 1,
+              "selector": {
+                "matchLabels": {
+                  "component": "test-aaa"
+                }
+              },
+              "template": {
+                "metadata": {
+                  "labels": {
+                    "component": "test-aaa"
+                  }
+                },
+                "spec": {
+                  "volumes": [
+                    {
+                      "name": "config",
+                      "configMap": {
+                        "name": "delete-me-aaa"
+                      }
+                    }
+                  ],
+                  "containers": [
+                    {
+                      "name": "test",
+                      "image": "alpine:latest",
+                      "env": [
+                        {
+                          "name": "TEST",
+                          "valueFrom": {
+                            "configMapKeyRef": {
+                              "key": "test",
+                              "name": "delete-me-aaa"
+                            }
+                          }
+                        }
+                      ],
+                      "command": [
+                        "/bin/sh"
+                      ],
+                      "args": [
+                        "-c",
+                        "echo $TEST; sleep 300"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "requiredArtifacts": [],
+        "optionalArtifacts": [
+          {
+            "type": "embedded/base64",
+            "customKind": false,
+            "name": "test-aaa",
+            "reference": "REMOVED",
+            "metadata": {}
+          },
+          {
+            "type": "kubernetes/configMap",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "version": "v001",
+            "location": "demo",
+            "reference": "delete-me-aaa-v001",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          },
+          {
+            "type": "kubernetes/deployment",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          },
+          {
+            "type": "embedded/base64",
+            "customKind": false,
+            "name": "test-aaa",
+            "reference": "REMOVED",
+            "metadata": {}
+          }
+        ],
+        "outputs.createdArtifacts": [
+          {
+            "type": "kubernetes/configMap",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "version": "v000",
+            "location": "demo",
+            "reference": "delete-me-aaa-v000",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          },
+          {
+            "type": "kubernetes/deployment",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          }
+        ],
+        "outputs.manifestNamesByNamespace": {
+          "demo": [
+            "configMap delete-me-aaa-v000",
+            "deployment delete-me-aaa"
+          ]
+        },
+        "manifestNamesByNamespaceToRefresh": {},
+        "outputs.boundArtifacts": [
+          {
+            "type": "kubernetes/configMap",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "version": "v001",
+            "location": "demo",
+            "reference": "delete-me-aaa-v001",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          }
+        ],
+        "outputs.manifests": [
+          {
+            "metadata": {
+              "generation": 2,
+              "uid": "3d1d6a56-7594-11eb-be73-02c62bddb3fe",
+              "resourceVersion": "88552660",
+              "creationTimestamp": "2021-02-23T05:01:50Z",
+              "name": "delete-me-aaa",
+              "namespace": "demo",
+              "annotations": {
+                "artifact.spinnaker.io/name": "delete-me-aaa",
+                "artifact.spinnaker.io/location": "demo",
+                "deployment.kubernetes.io/revision": "2",
+                "artifact.spinnaker.io/type": "kubernetes/deployment",
+                "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\"},\"name\":\"delete-me-aaa\",\"namespace\":\"demo\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"component\":\"test-aaa\"}},\"template\":{\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"component\":\"test-aaa\"}},\"spec\":{\"containers\":[{\"args\":[\"-c\",\"echo $TEST; sleep 300\"],\"command\":[\"/bin/sh\"],\"env\":[{\"name\":\"TEST\",\"valueFrom\":{\"configMapKeyRef\":{\"key\":\"test\",\"name\":\"delete-me-aaa-v001\"}}}],\"image\":\"alpine:latest\",\"name\":\"test\"}],\"volumes\":[{\"configMap\":{\"name\":\"delete-me-aaa-v001\"},\"name\":\"config\"}]}}}}\n",
+                "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                "moniker.spinnaker.io/application": "test"
+              },
+              "labels": {
+                "app.kubernetes.io/managed-by": "spinnaker",
+                "app.kubernetes.io/name": "test"
+              },
+              "selfLink": "/apis/apps/v1/namespaces/demo/deployments/delete-me-aaa"
+            },
+            "apiVersion": "apps/v1",
+            "kind": "Deployment",
+            "spec": {
+              "template": {
+                "metadata": {
+                  "annotations": {
+                    "artifact.spinnaker.io/name": "delete-me-aaa",
+                    "artifact.spinnaker.io/location": "demo",
+                    "artifact.spinnaker.io/type": "kubernetes/deployment",
+                    "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                    "moniker.spinnaker.io/application": "test"
+                  },
+                  "labels": {
+                    "app.kubernetes.io/managed-by": "spinnaker",
+                    "component": "test-aaa",
+                    "app.kubernetes.io/name": "test"
+                  }
+                },
+                "spec": {
+                  "dnsPolicy": "ClusterFirst",
+                  "terminationGracePeriodSeconds": 30,
+                  "volumes": [
+                    {
+                      "configMap": {
+                        "defaultMode": 420,
+                        "name": "delete-me-aaa-v001"
+                      },
+                      "name": "config"
+                    }
+                  ],
+                  "containers": [
+                    {
+                      "args": [
+                        "-c",
+                        "echo $TEST; sleep 300"
+                      ],
+                      "image": "alpine:latest",
+                      "imagePullPolicy": "Always",
+                      "terminationMessagePolicy": "File",
+                      "terminationMessagePath": "/dev/termination-log",
+                      "name": "test",
+                      "resources": {},
+                      "env": [
+                        {
+                          "name": "TEST",
+                          "valueFrom": {
+                            "configMapKeyRef": {
+                              "name": "delete-me-aaa-v001",
+                              "key": "test"
+                            }
+                          }
+                        }
+                      ],
+                      "command": [
+                        "/bin/sh"
+                      ]
+                    }
+                  ],
+                  "securityContext": {},
+                  "restartPolicy": "Always",
+                  "schedulerName": "default-scheduler"
+                }
+              },
+              "replicas": 1,
+              "revisionHistoryLimit": 10,
+              "selector": {
+                "matchLabels": {
+                  "component": "test-aaa"
+                }
+              },
+              "strategy": {
+                "type": "RollingUpdate",
+                "rollingUpdate": {
+                  "maxSurge": "25%",
+                  "maxUnavailable": "25%"
+                }
+              },
+              "progressDeadlineSeconds": 600
+            },
+            "status": {
+              "replicas": 1,
+              "readyReplicas": 1,
+              "conditions": [
+                {
+                  "reason": "NewReplicaSetAvailable",
+                  "lastTransitionTime": "2021-02-23T05:01:50Z",
+                  "message": "ReplicaSet \"delete-me-aaa-df7f6787b\" has successfully progressed.",
+                  "type": "Progressing",
+                  "lastUpdateTime": "2021-02-23T05:08:10Z",
+                  "status": "True"
+                },
+                {
+                  "reason": "MinimumReplicasAvailable",
+                  "lastTransitionTime": "2021-02-23T05:23:53Z",
+                  "message": "Deployment has minimum availability.",
+                  "type": "Available",
+                  "lastUpdateTime": "2021-02-23T05:23:53Z",
+                  "status": "True"
+                }
+              ],
+              "updatedReplicas": 1,
+              "availableReplicas": 1,
+              "observedGeneration": 2
+            }
+          },
+          {
+            "metadata": {
+              "uid": "3cf5d0a7-7594-11eb-8d3c-062831cc4a60",
+              "resourceVersion": "88549411",
+              "creationTimestamp": "2021-02-23T05:01:50Z",
+              "name": "delete-me-aaa-v000",
+              "namespace": "demo",
+              "annotations": {
+                "artifact.spinnaker.io/version": "v000",
+                "artifact.spinnaker.io/name": "delete-me-aaa",
+                "artifact.spinnaker.io/location": "demo",
+                "artifact.spinnaker.io/type": "kubernetes/configMap",
+                "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"test\":\"43\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/configMap\",\"artifact.spinnaker.io/version\":\"v000\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"configMap delete-me-aaa\",\"moniker.spinnaker.io/sequence\":\"0\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"moniker.spinnaker.io/sequence\":\"0\"},\"name\":\"delete-me-aaa-v000\",\"namespace\":\"demo\"}}\n",
+                "moniker.spinnaker.io/cluster": "configMap delete-me-aaa",
+                "moniker.spinnaker.io/sequence": "0",
+                "moniker.spinnaker.io/application": "test"
+              },
+              "labels": {
+                "app.kubernetes.io/managed-by": "spinnaker",
+                "app.kubernetes.io/name": "test",
+                "moniker.spinnaker.io/sequence": "0"
+              },
+              "selfLink": "/api/v1/namespaces/demo/configmaps/delete-me-aaa-v000"
+            },
+            "apiVersion": "v1",
+            "data": {
+              "test": "43"
+            },
+            "kind": "ConfigMap"
+          }
+        ],
+        "shouldRefreshManifestNamesByNamespaceToRefresh": true,
+        "artifacts": [
+          {
+            "type": "kubernetes/configMap",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "version": "v000",
+            "location": "demo",
+            "reference": "delete-me-aaa-v000",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          },
+          {
+            "type": "kubernetes/deployment",
+            "customKind": false,
+            "name": "delete-me-aaa",
+            "location": "demo",
+            "reference": "delete-me-aaa",
+            "metadata": {
+              "account": "spinnaker-integration"
+            }
+          }
+        ]
+      },
+      "tasks": [
+        {
+          "id": "1",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ResolveDeploySourceManifestTask",
+          "name": "resolveDeploySourceManifest",
+          "startTime": 1614058098195,
+          "endTime": 1614058098496,
+          "status": "SUCCEEDED",
+          "stageStart": true,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "2",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.DeployManifestTask",
+          "name": "deployManifest",
+          "startTime": 1614058098643,
+          "endTime": 1614058098882,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "3",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.MonitorKatoTask",
+          "name": "monitorDeploy",
+          "startTime": 1614058098972,
+          "endTime": 1614058104281,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "4",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.PromoteManifestKatoOutputsTask",
+          "name": "promoteOutputs",
+          "startTime": 1614058104364,
+          "endTime": 1614058104532,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "5",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ManifestForceCacheRefreshTask",
+          "name": "forceCacheRefresh",
+          "startTime": 1614058104616,
+          "endTime": 1614058104783,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "6",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.WaitForManifestStableTask",
+          "name": "waitForManifestToStabilize",
+          "startTime": 1614058104872,
+          "endTime": 1614058105257,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "7",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.artifacts.CleanupArtifactsTask",
+          "name": "cleanupArtifacts",
+          "startTime": 1614058105349,
+          "endTime": 1614058105575,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "8",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.MonitorKatoTask",
+          "name": "monitorCleanup",
+          "startTime": 1614058105661,
+          "endTime": 1614058105826,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "9",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.PromoteManifestKatoOutputsTask",
+          "name": "promoteOutputs",
+          "startTime": 1614058105911,
+          "endTime": 1614058106082,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "10",
+          "implementingClass": "com.netflix.spinnaker.orca.clouddriver.tasks.manifest.ManifestForceCacheRefreshTask",
+          "name": "forceCacheRefresh",
+          "startTime": 1614058106167,
+          "endTime": 1614058106342,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": false,
+          "loopStart": false,
+          "loopEnd": false
+        },
+        {
+          "id": "11",
+          "implementingClass": "com.netflix.spinnaker.orca.pipeline.tasks.artifacts.BindProducedArtifactsTask",
+          "name": "bindProducedArtifacts",
+          "startTime": 1614058106430,
+          "endTime": 1614058106605,
+          "status": "SUCCEEDED",
+          "stageStart": false,
+          "stageEnd": true,
+          "loopStart": false,
+          "loopEnd": false
+        }
+      ],
+      "requisiteStageRefIds": [
+        "1"
+      ]
+    }
+  ],
+  "startTime": 1614058088031,
+  "endTime": 1614058106779,
+  "status": "SUCCEEDED",
+  "authentication": {
+    "user": "RocketRaccoon",
+    "allowedAccounts": [
+      "spinnaker-demo"
+    ]
+  },
+  "origin": "api",
+  "trigger": {
+    "type": "manual",
+    "user": "RocketRaccoon",
+    "parameters": {
+      "test": "43"
+    },
+    "artifacts": [
+      {
+        "customKind": false,
+        "reference": "delete-me-aaa-v001",
+        "metadata": {
+          "account": "spinnaker-integration"
+        },
+        "name": "delete-me-aaa",
+        "location": "demo",
+        "type": "kubernetes/configMap",
+        "version": "v001"
+      },
+      {
+        "customKind": false,
+        "reference": "delete-me-aaa",
+        "metadata": {
+          "account": "spinnaker-integration"
+        },
+        "name": "delete-me-aaa",
+        "location": "demo",
+        "type": "kubernetes/deployment"
+      },
+      {
+        "customKind": false,
+        "reference": "REMOVED",
+        "metadata": {},
+        "name": "test-aaa",
+        "type": "embedded/base64"
+      }
+    ],
+    "notifications": [],
+    "rebake": false,
+    "dryRun": false,
+    "strategy": false,
+    "parentExecution": {
+      "type": "PIPELINE",
+      "id": "01EZ6NPEPZ0GEH5BXDEM5PYANY",
+      "application": "test",
+      "name": "test-artifact-bound-parent",
+      "buildTime": 1614058044159,
+      "canceled": false,
+      "limitConcurrent": true,
+      "keepWaitingPipelines": false,
+      "stages": [
+        {
+          "id": "01EZ6NPEQZ85ZXP320KEN7H4R9",
+          "refId": "1",
+          "type": "pipeline",
+          "name": "deploy aaa",
+          "startTime": 1614058044327,
+          "endTime": 1614058075284,
+          "status": "SUCCEEDED",
+          "context": {
+            "pipeline": "ce9e29ab-aecb-4064-8e09-2c3964d8419d",
+            "executionId": "01EZ6NPF4JB8RZ7SQG7JD0V0CH",
+            "executionName": "deploy-aaa",
+            "application": "test",
+            "pipelineParameters": {
+              "test": "42"
+            },
+            "failPipeline": true,
+            "waitForCompletion": true,
+            "status": "SUCCEEDED"
+          },
+          "outputs": {
+            "outputs.createdArtifacts": [
+              {
+                "type": "kubernetes/deployment",
+                "customKind": false,
+                "name": "delete-me-aaa",
+                "location": "demo",
+                "reference": "delete-me-aaa",
+                "metadata": {
+                  "account": "spinnaker-integration"
+                }
+              },
+              {
+                "type": "kubernetes/configMap",
+                "customKind": false,
+                "name": "delete-me-aaa",
+                "version": "v001",
+                "location": "demo",
+                "reference": "delete-me-aaa-v001",
+                "metadata": {
+                  "account": "spinnaker-integration"
+                }
+              }
+            ],
+            "outputs.manifestNamesByNamespace": {
+              "demo": [
+                "configMap delete-me-aaa-v001",
+                "deployment delete-me-aaa"
+              ]
+            },
+            "manifestNamesByNamespaceToRefresh": {},
+            "optionalArtifacts": [
+              {
+                "type": "embedded/base64",
+                "customKind": false,
+                "name": "test-aaa",
+                "reference": "REMOVED",
+                "metadata": {}
+              }
+            ],
+            "outputs.boundArtifacts": [
+              {
+                "type": "kubernetes/configMap",
+                "customKind": false,
+                "name": "delete-me-aaa",
+                "version": "v001",
+                "location": "demo",
+                "reference": "delete-me-aaa-v001",
+                "metadata": {
+                  "account": "spinnaker-integration"
+                }
+              }
+            ],
+            "resolvedExpectedArtifacts": [
+              {
+                "matchArtifact": {
+                  "type": "embedded/base64",
+                  "customKind": false,
+                  "name": "test-aaa",
+                  "metadata": {
+                    "id": "b0d1e8a5-1a57-4c20-b171-d4eace59f09b"
+                  },
+                  "artifactAccount": "embedded-artifact"
+                },
+                "usePriorArtifact": false,
+                "useDefaultArtifact": false,
+                "defaultArtifact": {
+                  "customKind": true,
+                  "metadata": {
+                    "id": "22a4a63a-c77c-4ccd-a89c-95c8fcad3185"
+                  }
+                },
+                "id": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+                "boundArtifact": {
+                  "type": "embedded/base64",
+                  "customKind": false,
+                  "name": "test-aaa",
+                  "reference": "REMOVED",
+                  "metadata": {}
+                }
+              }
+            ],
+            "cloudProvider": "kubernetes",
+            "manifests": [
+              {
+                "apiVersion": "v1",
+                "kind": "ConfigMap",
+                "metadata": {
+                  "name": "delete-me-aaa",
+                  "namespace": "demo"
+                },
+                "data": {
+                  "test": "42"
+                }
+              },
+              {
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "metadata": {
+                  "name": "delete-me-aaa",
+                  "namespace": "demo"
+                },
+                "spec": {
+                  "replicas": 1,
+                  "selector": {
+                    "matchLabels": {
+                      "component": "test-aaa"
+                    }
+                  },
+                  "template": {
+                    "metadata": {
+                      "labels": {
+                        "component": "test-aaa"
+                      }
+                    },
+                    "spec": {
+                      "volumes": [
+                        {
+                          "name": "config",
+                          "configMap": {
+                            "name": "delete-me-aaa"
+                          }
+                        }
+                      ],
+                      "containers": [
+                        {
+                          "name": "test",
+                          "image": "alpine:latest",
+                          "env": [
+                            {
+                              "name": "TEST",
+                              "valueFrom": {
+                                "configMapKeyRef": {
+                                  "key": "test",
+                                  "name": "delete-me-aaa"
+                                }
+                              }
+                            }
+                          ],
+                          "command": [
+                            "/bin/sh"
+                          ],
+                          "args": [
+                            "-c",
+                            "echo $TEST; sleep 300"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
+            "outputs.manifests": [
+              {
+                "metadata": {
+                  "uid": "1d98ee1c-7595-11eb-8d3c-062831cc4a60",
+                  "resourceVersion": "88550225",
+                  "creationTimestamp": "2021-02-23T05:08:07Z",
+                  "name": "delete-me-aaa-v001",
+                  "namespace": "demo",
+                  "annotations": {
+                    "artifact.spinnaker.io/version": "v001",
+                    "artifact.spinnaker.io/name": "delete-me-aaa",
+                    "artifact.spinnaker.io/location": "demo",
+                    "artifact.spinnaker.io/type": "kubernetes/configMap",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"test\":\"42\"},\"kind\":\"ConfigMap\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/configMap\",\"artifact.spinnaker.io/version\":\"v001\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"configMap delete-me-aaa\",\"moniker.spinnaker.io/sequence\":\"1\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"moniker.spinnaker.io/sequence\":\"1\"},\"name\":\"delete-me-aaa-v001\",\"namespace\":\"demo\"}}\n",
+                    "moniker.spinnaker.io/cluster": "configMap delete-me-aaa",
+                    "moniker.spinnaker.io/sequence": "1",
+                    "moniker.spinnaker.io/application": "test"
+                  },
+                  "labels": {
+                    "app.kubernetes.io/managed-by": "spinnaker",
+                    "app.kubernetes.io/name": "test",
+                    "moniker.spinnaker.io/sequence": "1"
+                  },
+                  "selfLink": "/api/v1/namespaces/demo/configmaps/delete-me-aaa-v001"
+                },
+                "apiVersion": "v1",
+                "data": {
+                  "test": "42"
+                },
+                "kind": "ConfigMap"
+              },
+              {
+                "metadata": {
+                  "generation": 2,
+                  "uid": "3d1d6a56-7594-11eb-be73-02c62bddb3fe",
+                  "resourceVersion": "88552660",
+                  "creationTimestamp": "2021-02-23T05:01:50Z",
+                  "name": "delete-me-aaa",
+                  "namespace": "demo",
+                  "annotations": {
+                    "artifact.spinnaker.io/name": "delete-me-aaa",
+                    "artifact.spinnaker.io/location": "demo",
+                    "deployment.kubernetes.io/revision": "2",
+                    "artifact.spinnaker.io/type": "kubernetes/deployment",
+                    "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\"},\"name\":\"delete-me-aaa\",\"namespace\":\"demo\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"component\":\"test-aaa\"}},\"template\":{\"metadata\":{\"annotations\":{\"artifact.spinnaker.io/location\":\"demo\",\"artifact.spinnaker.io/name\":\"delete-me-aaa\",\"artifact.spinnaker.io/type\":\"kubernetes/deployment\",\"moniker.spinnaker.io/application\":\"test\",\"moniker.spinnaker.io/cluster\":\"deployment delete-me-aaa\"},\"labels\":{\"app.kubernetes.io/managed-by\":\"spinnaker\",\"app.kubernetes.io/name\":\"test\",\"component\":\"test-aaa\"}},\"spec\":{\"containers\":[{\"args\":[\"-c\",\"echo $TEST; sleep 300\"],\"command\":[\"/bin/sh\"],\"env\":[{\"name\":\"TEST\",\"valueFrom\":{\"configMapKeyRef\":{\"key\":\"test\",\"name\":\"delete-me-aaa-v001\"}}}],\"image\":\"alpine:latest\",\"name\":\"test\"}],\"volumes\":[{\"configMap\":{\"name\":\"delete-me-aaa-v001\"},\"name\":\"config\"}]}}}}\n",
+                    "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                    "moniker.spinnaker.io/application": "test"
+                  },
+                  "labels": {
+                    "app.kubernetes.io/managed-by": "spinnaker",
+                    "app.kubernetes.io/name": "test"
+                  },
+                  "selfLink": "/apis/apps/v1/namespaces/demo/deployments/delete-me-aaa"
+                },
+                "apiVersion": "apps/v1",
+                "kind": "Deployment",
+                "spec": {
+                  "template": {
+                    "metadata": {
+                      "annotations": {
+                        "artifact.spinnaker.io/name": "delete-me-aaa",
+                        "artifact.spinnaker.io/location": "demo",
+                        "artifact.spinnaker.io/type": "kubernetes/deployment",
+                        "moniker.spinnaker.io/cluster": "deployment delete-me-aaa",
+                        "moniker.spinnaker.io/application": "test"
+                      },
+                      "labels": {
+                        "app.kubernetes.io/managed-by": "spinnaker",
+                        "component": "test-aaa",
+                        "app.kubernetes.io/name": "test"
+                      }
+                    },
+                    "spec": {
+                      "dnsPolicy": "ClusterFirst",
+                      "terminationGracePeriodSeconds": 30,
+                      "volumes": [
+                        {
+                          "configMap": {
+                            "defaultMode": 420,
+                            "name": "delete-me-aaa-v001"
+                          },
+                          "name": "config"
+                        }
+                      ],
+                      "containers": [
+                        {
+                          "args": [
+                            "-c",
+                            "echo $TEST; sleep 300"
+                          ],
+                          "image": "alpine:latest",
+                          "imagePullPolicy": "Always",
+                          "terminationMessagePolicy": "File",
+                          "terminationMessagePath": "/dev/termination-log",
+                          "name": "test",
+                          "resources": {},
+                          "env": [
+                            {
+                              "name": "TEST",
+                              "valueFrom": {
+                                "configMapKeyRef": {
+                                  "name": "delete-me-aaa-v001",
+                                  "key": "test"
+                                }
+                              }
+                            }
+                          ],
+                          "command": [
+                            "/bin/sh"
+                          ]
+                        }
+                      ],
+                      "securityContext": {},
+                      "restartPolicy": "Always",
+                      "schedulerName": "default-scheduler"
+                    }
+                  },
+                  "replicas": 1,
+                  "revisionHistoryLimit": 10,
+                  "selector": {
+                    "matchLabels": {
+                      "component": "test-aaa"
+                    }
+                  },
+                  "strategy": {
+                    "type": "RollingUpdate",
+                    "rollingUpdate": {
+                      "maxSurge": "25%",
+                      "maxUnavailable": "25%"
+                    }
+                  },
+                  "progressDeadlineSeconds": 600
+                },
+                "status": {
+                  "replicas": 1,
+                  "readyReplicas": 1,
+                  "conditions": [
+                    {
+                      "reason": "NewReplicaSetAvailable",
+                      "lastTransitionTime": "2021-02-23T05:01:50Z",
+                      "message": "ReplicaSet \"delete-me-aaa-df7f6787b\" has successfully progressed.",
+                      "type": "Progressing",
+                      "lastUpdateTime": "2021-02-23T05:08:10Z",
+                      "status": "True"
+                    },
+                    {
+                      "reason": "MinimumReplicasAvailable",
+                      "lastTransitionTime": "2021-02-23T05:23:53Z",
+                      "message": "Deployment has minimum availability.",
+                      "type": "Available",
+                      "lastUpdateTime": "2021-02-23T05:23:53Z",
+                      "status": "True"
+                    }
+                  ],
+                  "updatedReplicas": 1,
+                  "availableReplicas": 1,
+                  "observedGeneration": 2
+                }
+              }
+            ],
+            "shouldRefreshManifestNamesByNamespaceToRefresh": true,
+            "requiredArtifacts": [],
+            "artifacts": [
+              {
+                "type": "embedded/base64",
+                "customKind": false,
+                "name": "test-aaa",
+                "reference": "REMOVED",
+                "metadata": {}
+              },
+              {
+                "type": "kubernetes/deployment",
+                "customKind": false,
+                "name": "delete-me-aaa",
+                "location": "demo",
+                "reference": "delete-me-aaa",
+                "metadata": {
+                  "account": "spinnaker-integration"
+                }
+              },
+              {
+                "type": "kubernetes/configMap",
+                "customKind": false,
+                "name": "delete-me-aaa",
+                "version": "v001",
+                "location": "demo",
+                "reference": "delete-me-aaa-v001",
+                "metadata": {
+                  "account": "spinnaker-integration"
+                }
+              }
+            ]
+          },
+          "tasks": [
+            {
+              "id": "1",
+              "implementingClass": "com.netflix.spinnaker.orca.front50.tasks.StartPipelineTask",
+              "name": "startPipeline",
+              "startTime": 1614058044472,
+              "endTime": 1614058044707,
+              "status": "SUCCEEDED",
+              "stageStart": true,
+              "stageEnd": false,
+              "loopStart": false,
+              "loopEnd": false
+            },
+            {
+              "id": "2",
+              "implementingClass": "com.netflix.spinnaker.orca.front50.tasks.MonitorPipelineTask",
+              "name": "monitorPipeline",
+              "startTime": 1614058044807,
+              "endTime": 1614058075197,
+              "status": "SUCCEEDED",
+              "stageStart": false,
+              "stageEnd": true,
+              "loopStart": false,
+              "loopEnd": false
+            }
+          ],
+          "requisiteStageRefIds": []
+        }
+      ],
+      "startTime": 1614058044252,
+      "endTime": 1614058075367,
+      "status": "SUCCEEDED",
+      "authentication": {
+        "user": "RocketRaccoon",
+        "allowedAccounts": [
+          "spinnaker-demo"
+        ]
+      },
+      "origin": "api",
+      "trigger": {
+        "type": "manual",
+        "user": "RocketRaccoon",
+        "parameters": {
+          "test": "42"
+        },
+        "artifacts": [],
+        "notifications": [],
+        "rebake": false,
+        "dryRun": false,
+        "strategy": false,
+        "resolvedExpectedArtifacts": [],
+        "expectedArtifacts": [],
+        "executionId": "01EZ6NPEPZ0GEH5BXDEM5PYANY",
+        "eventId": "7288d522-fcb5-4aa9-89ac-912b730ad22f",
+        "enabled": false,
+        "preferred": false
+      },
+      "pipelineConfigId": "6ae93752-0d42-40d6-b863-41fac9d5dbfb",
+      "notifications": [],
+      "initialConfig": {},
+      "systemNotifications": [],
+      "spelEvaluator": "v4"
+    },
+    "resolvedExpectedArtifacts": [],
+    "expectedArtifacts": [],
+    "eventId": "023bd5e4-e0fc-46bf-b414-6eb5d885f2a9",
+    "parentPipelineId": "01EZ6NPEPZ0GEH5BXDEM5PYANY",
+    "isPipeline": true,
+    "parentStatus": "SUCCEEDED",
+    "enabled": false,
+    "parentPipelineApplication": "test",
+    "pipeline": "6ae93752-0d42-40d6-b863-41fac9d5dbfb",
+    "executionId": "01EZ6NQSCTRHFTHRQY0G03KYER",
+    "application": "test",
+    "parentPipelineName": "test-artifact-bound-parent",
+    "preferred": false
+  },
+  "pipelineConfigId": "ce9e29ab-aecb-4064-8e09-2c3964d8419d",
+  "notifications": [],
+  "initialConfig": {},
+  "systemNotifications": [],
+  "spelEvaluator": "v4"
+}

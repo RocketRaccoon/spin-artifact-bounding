@@ -1,0 +1,94 @@
+{
+  "keepWaitingPipelines": false,
+  "lastModifiedBy": "RocketRaccoon",
+  "limitConcurrent": true,
+  "parameterConfig": [
+    {
+      "default": "42",
+      "description": "",
+      "hasOptions": false,
+      "label": "test",
+      "name": "test",
+      "options": [
+        {
+          "value": ""
+        }
+      ],
+      "pinned": true,
+      "required": true
+    }
+  ],
+  "roles": [],
+  "spelEvaluator": "v4",
+  "stages": [
+    {
+      "expectedArtifacts": [
+        {
+          "defaultArtifact": {
+            "customKind": true,
+            "id": "22a4a63a-c77c-4ccd-a89c-95c8fcad3185"
+          },
+          "displayName": "curly-goat-83",
+          "id": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+          "matchArtifact": {
+            "artifactAccount": "embedded-artifact",
+            "customKind": false,
+            "id": "b0d1e8a5-1a57-4c20-b171-d4eace59f09b",
+            "name": "test-aaa",
+            "type": "embedded/base64"
+          },
+          "useDefaultArtifact": false,
+          "usePriorArtifact": false
+        }
+      ],
+      "inputArtifacts": [
+        {
+          "account": "chartmuseum",
+          "artifact": {
+            "artifactAccount": "chartmuseum",
+            "id": "f63fc2f3-4d4a-4a19-86a2-6db39879d1b2",
+            "name": "test-aaa",
+            "type": "helm/chart",
+            "version": "0.1.0"
+          }
+        }
+      ],
+      "name": "Bake (Manifest)",
+      "namespace": "demo",
+      "outputName": "test-aaa",
+      "overrides": {
+        "test": "${ parameters.test }"
+      },
+      "refId": "1",
+      "requisiteStageRefIds": [],
+      "templateRenderer": "HELM3",
+      "type": "bakeManifest"
+    },
+    {
+      "account": "spinnaker-integration",
+      "cloudProvider": "kubernetes",
+      "manifestArtifactId": "3ff7ee29-bc0b-4b4e-86e9-c16525b7ac94",
+      "moniker": {
+        "app": "test"
+      },
+      "name": "Deploy (Manifest)",
+      "namespaceOverride": "demo",
+      "refId": "2",
+      "requisiteStageRefIds": [
+        "1"
+      ],
+      "skipExpressionEvaluation": true,
+      "source": "artifact",
+      "trafficManagement": {
+        "enabled": false,
+        "options": {
+          "enableTraffic": false,
+          "services": []
+        }
+      },
+      "type": "deployManifest"
+    }
+  ],
+  "triggers": [],
+  "updateTs": "1614057612032"
+}

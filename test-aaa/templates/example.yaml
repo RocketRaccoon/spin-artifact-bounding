@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: delete-me-aaa
+  namespace: cubicles
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: test-aaa
+  template:
+    metadata:
+      labels:
+        component: test-aaa
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: delete-me-aaa
+      containers:
+        - name: test
+          image: "alpine:latest"
+          env:
+            - name: TEST
+              valueFrom:
+                configMapKeyRef:
+                  key: test
+                  name: delete-me-aaa
+          command:
+            - /bin/sh
+          args:
+            - '-c'
+            - echo $TEST; sleep 300
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: delete-me-aaa
+  namespace: cubicles
+data:
+  test: {{ .Values.test | quote }}
